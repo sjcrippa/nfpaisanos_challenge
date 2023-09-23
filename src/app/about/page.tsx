@@ -1,6 +1,10 @@
-function About(){
+function About (){
   return (
-    <div className="text-neutral4 text-sm font-sans font-bold">What We Do</div>
+    <>
+      <main>
+        <h1 className="text-light">About Section</h1>
+      </main>
+    </>
   )
 }
 

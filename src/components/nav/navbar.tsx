@@ -1,8 +1,7 @@
-import WhatWeDo from "@/app/about/page"
-import Discover from "@/app/discover/page"
+import Link from "next/link";
 import Image from "next/image";
 
-function Nav (){
+function Navbar() {
   return (
     <>
       <nav className="max-w-screen-xl flex h-20 justify-between">
@@ -10,14 +9,17 @@ function Nav (){
         <div className=" flex items-center gap-8">
           <div className="flex gap-2 items-center">
             <Image src='/frame.png' alt="logo" width={32} height={32} />
-            <h1 className="text-neutral7 font-bold text-2xl">NFPaisanos</h1>
+            <h1 className="text-neutral7 font-bold text-2xl">
+              <Link href='/'>NFPaisanos</Link>
+            </h1>
           </div>
 
           <div className="bg-neutral3 w-0.5 h-5 rounded-md"></div>
 
           <ul className="flex flex-1 gap-8 items-center align-middle">
-            <li><Discover /></li>
-            <li><WhatWeDo /></li>
+            <li className="text-neutral4 text-sm font-sans font-bold"><Link href='/discover'>Discover</Link></li>
+            <li className="text-neutral4 text-sm font-sans font-bold"><Link href='/about'>What We Do</Link></li>
+
           </ul>
         </div>
 
@@ -31,4 +33,4 @@ function Nav (){
   )
 }
 
-export default Nav;
+export default Navbar;

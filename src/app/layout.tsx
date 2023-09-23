@@ -1,4 +1,4 @@
-import Nav from '@/components/nav/nav';
+import Navbar from '@/components/nav/navbar';
 import type { Metadata } from 'next';
 
 import './globals.css'
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className='max-w-screen-xl container p-8 md:px-40'>
         <main>
-          <Nav />
+          <Navbar />
           {children}
         </main>
       </body>
