@@ -1,9 +1,4 @@
-const Home = () => {
-  return (
-    <>
-      <main className="text-light">Home</main>
-    </>
-  )
-}
+export default function Home(){
+  return null;
+};
 
-export default Home;
