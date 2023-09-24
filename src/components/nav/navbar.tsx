@@ -15,7 +15,7 @@ function Navbar() {
         <div className=" flex items-center gap-8">
           <div className="flex gap-2 items-center">
             <Image src='/frame.png' alt="logo" width={32} height={32} />
-            <h1 className="text-neutral7 font-bold text-2xl">
+            <h1 className="text-neutral7 font-extrabold text-2xl">
               <Link href='/'>NFPaisanos</Link>
             </h1>
           </div>
