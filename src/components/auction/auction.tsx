@@ -66,7 +66,7 @@ function Auction() {
               <button className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold'>View a item</button>
             </section>
 
-            <section className='flex justify-center md:flex md:gap-2'>
+            <section className='flex justify-center md:flex md:justify-normal md:gap-2'>
               <button className='p-2 text-neutral4'>
                 <FaArrowLeft />
               </button>
