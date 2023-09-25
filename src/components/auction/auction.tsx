@@ -4,13 +4,13 @@ import Image from 'next/image'
 function Auction() {
   return (
     <>
-      <main className='mt-32 grid grid-cols-1 lg:grid lg:grid-cols-2'>
+      <main className='mt-32 grid grid-cols-1 lg:grid lg:grid-cols-2 mb-28'>
 
         <div className=''>
           <Image className='rounded-3xl' src='/auction.png' alt='auction image' width={683} height={1024} />
         </div>
 
-        <div className='mx-auto mt-8 lg:ml-32'>
+        <div className='mx-auto mt-8 lg:ml-32 lg:mt-0'>
           <section className='flex flex-col'>
             <h1 className='text-neutral8 text-6xl tracking-wider leading-none font-black'>the creator network®</h1>
             <div className='mt-5 grid grid-cols-2 gap-[33px]'>
@@ -66,7 +66,7 @@ function Auction() {
               <button className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold'>View a item</button>
             </section>
 
-            <section className='flex gap-2'>
+            <section className='flex justify-center md:flex md:gap-2'>
               <button className='p-2 text-neutral4'>
                 <FaArrowLeft />
               </button>
