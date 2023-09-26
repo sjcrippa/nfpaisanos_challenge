@@ -14,7 +14,7 @@ function OrderBy() {
       <div className='w-full'>
         <Menu.Button className="flex justify-between w-full md:w-48 rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
           Newest
-          <ChevronDownIcon className="flex justify-end text-neutral3 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />
+          <ChevronDownIcon className="flex justify-end text-neutral4 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />
         </Menu.Button>
       </div>
 
