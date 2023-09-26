@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function Footer() {
+const Footer = () => {
   return (
     <>
       <footer className="flex flex-col">

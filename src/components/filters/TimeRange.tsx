@@ -3,32 +3,23 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Category from './Category'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-function OrderBy() {
+const TimeRange = () => {
   return (
     <Menu as="div" className="flex flex-col md:flex md:flex-row w-full">
       <div className='w-full'>
-        <Menu.Button className="flex justify-between w-full md:w-48 rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
+        <Menu.Button className="flex justify-between w-full md:w-48 h-12 items-center rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
           Newest
           <ChevronDownIcon className="flex justify-end text-neutral4 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />
         </Menu.Button>
       </div>
 
-      <div className='mt-8 mb-8 flex md:flex md:justify-end md:mt-0 md:mb-0 md:w-full gap-3 font-bold text-sm'>
-        <button className='px-3 py-[6px] rounded-full text-neutral4 focus:bg-neutral8 focus-within:text-neutral2'>
-          <span>All items</span>
-        </button>
-        <button className='px-3 py-[6px] rounded-full text-neutral4 focus:bg-neutral8 focus-within:text-neutral2'>
-          <span>Art</span>
-        </button>
-        <button className='px-3 py-[6px] rounded-full text-neutral4 focus:bg-neutral8 focus-within:text-neutral2'>
-          <span>Photography</span>
-        </button>
-      </div>
+      <Category />
 
       <Transition
         as={Fragment}
@@ -59,4 +50,4 @@ function OrderBy() {
   )
 }
 
-export default OrderBy
+export default TimeRange

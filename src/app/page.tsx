@@ -1,18 +1,19 @@
-import Auction from '@/components/auction/auction';
-import Search from '@/components/search/search';
-import OrderBy from '@/components/filters/orderBy';
-import Content from '@/components/content/content';
-import Footer from '@/components/footer/footer';
+import Aunction from '@/components/aunction/Aunction';
+import Search from '@/components/search/SearchBar';
+import TimeRange from '@/components/filters/TimeRange';
+import Footer from '@/components/footer/Footer';
+import MainContent from '@/components/content/MainContent';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
-      <Auction />
+      <Aunction />
       <Search />
-      <OrderBy />
-      <Content />
+      <TimeRange />
+      <MainContent />
       <Footer />
     </>
   );
 };
 
+export default Home

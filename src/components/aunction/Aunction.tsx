@@ -1,7 +1,7 @@
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import Image from 'next/image'
 
-function Auction() {
+const Aunction = () => {
   return (
     <>
       <main className='mt-32 grid grid-cols-1 lg:grid lg:grid-cols-2 mb-28'>
@@ -83,4 +83,4 @@ function Auction() {
   )
 }
 
-export default Auction
+export default Aunction

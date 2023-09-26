@@ -1,4 +1,4 @@
-import Navbar from '@/components/nav/navbar';
+import Navbar from '@/components/navbar/Navbar';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google'
 

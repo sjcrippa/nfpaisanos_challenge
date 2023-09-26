@@ -1,9 +1,9 @@
 import Image from "next/image";
-import PriceRange from "../filters/priceRange";
+import PriceRange from "../filters/PriceRange";
 import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid'
 
 
-function Content() {
+const MainContent = () => {
   return (
     <>
       <main className="flex flex-col mx-auto md:w-full md:flex">
@@ -49,4 +49,4 @@ function Content() {
   )
 }
 
-export default Content;
+export default MainContent;

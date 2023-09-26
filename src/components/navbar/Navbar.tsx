@@ -5,7 +5,7 @@ import { HiOutlineMenuAlt4, HiX } from 'react-icons/hi'
 import Link from "next/link";
 import Image from "next/image";
 
-function Navbar() {
+const Navbar = () => {
   const [sideMenu, setSideMenu] = useState(false)
 
   return (
