@@ -12,7 +12,7 @@ const Footer = () => {
         <section className="w-full mt-20 mx-auto">
           <div className="flex flex-col gap-y-5 items-center justify-center">
             <div className="flex gap-2">
-              <Image src='/frame.png' alt="logo" width={32} height={32} />
+              <Image src='/frame.svg' alt="logo" width={32} height={32} />
               <h2 className="text-neutral7 font-extrabold text-2xl">
                 <Link href='/'>NFPaisanos</Link>
               </h2>
