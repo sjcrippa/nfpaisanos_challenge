@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid';
+
 import PriceRange from "../filters/PriceRange";
-import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid'
 
 
 const MainContent = () => {

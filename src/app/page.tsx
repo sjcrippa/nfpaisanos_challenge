@@ -1,8 +1,8 @@
 import Aunction from '@/components/aunction/Aunction';
 import Search from '@/components/search/SearchBar';
 import TimeRange from '@/components/filters/TimeRange';
-import Footer from '@/components/footer/Footer';
 import MainContent from '@/components/content/MainContent';
+import Footer from '@/components/footer/Footer';
 
 const Home = () => {
   return (
