@@ -1,14 +1,22 @@
-const convertTimestampToTime = (data: any) => {
-  const { endsAt } = data;
-  const date = new Date(endsAt);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
+// conversion.ts
 
-  // Formatea los valores para asegurarte de que siempre tengan dos dígitos
-  const formattedHours = hours.toString().padStart(2, '0');
-  const formattedMinutes = minutes.toString().padStart(2, '0');
-  const formattedSeconds = seconds.toString().padStart(2, '0');
+// Definir una interfaz para el resultado de la conversión
+export interface TimeConversionResult {
+  hours: string;
+  minutes: string;
+  seconds: string;
+}
 
-  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-};
+// Función para convertir un timestamp a horas, minutos y segundos
+export function convertTimestampToTime(timestamp: string): TimeConversionResult {
+  const date = new Date(timestamp);
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  const seconds = date.getSeconds().toString().padStart(2, '0');
+
+  return {
+    hours,
+    minutes,
+    seconds,
+  };
+}

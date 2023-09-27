@@ -39,7 +39,7 @@ const Aunction = () => {
         ))} */}
         <Image className='rounded-2xl' src={currentItem.media.image} alt='logo' width={683} height={1024} />
 
-        <AunctionSlider onNextClick={onNextClick} onPrevClick={onPrevClick} currentItem={currentItem}/>
+        <AunctionSlider onNextClick={onNextClick} onPrevClick={onPrevClick} currentItem={currentItem} />
 
       </main>
     </>
