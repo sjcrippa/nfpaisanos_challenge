@@ -6,7 +6,7 @@ const Loader = () => {
             <div className='container mx-auto'>
                 <div className='flex justify-center align-middle'>
                     <ScaleLoader
-                        color="#3C3CE5"
+                        color="#9757D7"
                     />
                 </div>
             </div>

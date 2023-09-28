@@ -30,7 +30,7 @@ const TimeRange = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute mt-10 z-10 w-56 origin-right bg-white shadow-lg focus:outline-none backdrop-blur-lg border border-neutral3 rounded-xl">
+        <Menu.Items className="absolute mt-12 z-10 w-56 origin-right bg-white shadow-lg focus:outline-none backdrop-blur-lg border border-neutral3 rounded-xl">
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
