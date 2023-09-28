@@ -5,10 +5,11 @@ import { useState } from 'react'
 
 import useFetch from '@/hooks/useFetch'
 import AunctionSlider from './AunctionSlider'
+import Loader from '../loader/Loader'
 
 const Aunction = () => {
   const url = '/popular-aunctions.json'
-  const { data, loading, error } = useFetch(url);
+  const { data, loading } = useFetch(url);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -23,7 +24,7 @@ const Aunction = () => {
   };
 
   if (!data || data.length === 0) {
-    return <div className='text-light'>{loading}</div>;
+    return <Loader />
   }
 
   const currentItem = data[currentIndex];
@@ -40,6 +41,7 @@ const Aunction = () => {
         <Image className='rounded-2xl' src={currentItem.media.image} alt='logo' width={683} height={1024} />
 
         <AunctionSlider onNextClick={onNextClick} onPrevClick={onPrevClick} currentItem={currentItem} />
+
 
       </main>
     </>
