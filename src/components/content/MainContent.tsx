@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid';
 
-import PriceRange from "../filters/PriceRange";
 import useFetch from '@/hooks/useFetch';
+import PriceRange from "../filters/PriceRange";
 import Loader from "../loader/Loader";
 import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
