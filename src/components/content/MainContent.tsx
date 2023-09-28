@@ -7,7 +7,7 @@ import useFetch from '@/hooks/useFetch';
 import Loader from "../loader/Loader";
 import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
-import PriceRange from "../filters/PriceRange";
+import PriceRange from "@/components/filters/PriceRange";
 
 const MainContent = () => {
   const url = '/aunctions.json'
