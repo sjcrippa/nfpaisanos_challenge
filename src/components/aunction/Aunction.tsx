@@ -9,7 +9,7 @@ import Loader from '../loader/Loader'
 
 const Aunction = () => {
   const url = '/popular-aunctions.json'
-  const { data, loading } = useFetch(url);
+  const { data } = useFetch(url);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -32,17 +32,15 @@ const Aunction = () => {
   return (
     <>
       <main className='mt-32 grid grid-cols-1 lg:grid lg:grid-cols-2 mb-28'>
-
-        {/* {data?.map((currentItem) => (
-          <div key={currentItem.id}>
-            <Image src={currentItem.media.image} alt='logo' width={683} height={1024} />
-          </div>
-        ))} */}
-        <Image className='rounded-2xl' src={currentItem.media.image} alt='logo' width={683} height={1024} />
-
-        <AunctionSlider onNextClick={onNextClick} onPrevClick={onPrevClick} currentItem={currentItem} />
-
-
+        <Image
+          className='rounded-2xl'
+          src={currentItem.media.image} alt='logo'
+          width={683}
+          height={1024} />
+        <AunctionSlider
+          onNextClick={onNextClick}
+          onPrevClick={onPrevClick}
+          currentItem={currentItem} />
       </main>
     </>
   )

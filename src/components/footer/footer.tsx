@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="w-full h-[1px] bg-neutral3 mt-12"></div>
 
           <div className="mt-8 mb-8 text-center">
-            <h4 className="text-xs text-neutral4">Created with ❤ by <b className="font-semibold">S.J.Crippa.</b></h4>
+            <h4 className="text-xs text-neutral4">Created with ❤️ by <b className="font-semibold">S.J.Crippa.</b></h4>
           </div>
         </section>
       </footer>
