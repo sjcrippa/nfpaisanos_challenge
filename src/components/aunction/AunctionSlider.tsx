@@ -8,7 +8,6 @@ import { NftsTypes } from '@/types';
 import useCurrencyFetch from '../../hooks/useCurrencyFetch';
 import convertETHtoUSD from '../../utility/convertEthToUsd';
 import { convertTimestampToTime, TimeConversionResult } from '@/utility/convertTime';
-import timeData from '../../../public/popular-aunctions.json'
 
 interface ChildComponentProps {
   onNextClick: () => void;
@@ -17,7 +16,7 @@ interface ChildComponentProps {
 }
 
 const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClick, currentItem }) => {
-  const { currencyData, loading } = useCurrencyFetch('/eth-usd.json');
+  const { currencyData } = useCurrencyFetch('/eth-usd.json');
 
   const ethValue = currentItem.instantPrice;
 

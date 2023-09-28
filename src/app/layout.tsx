@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <main className='max-w-screen-xl mx-auto container p-8 md:px-40'>
+        <main className='max-w-screen-xl mx-auto p-8 md:px-40'>
           <Navbar />
           {children}
         </main>

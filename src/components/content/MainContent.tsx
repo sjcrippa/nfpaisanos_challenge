@@ -5,11 +5,15 @@ import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid';
 
 import useFetch from '@/hooks/useFetch';
 import Loader from "../loader/Loader";
-import TimeRange from "../filters/TimeRange";
-import SearchBar from "../search/SearchBar";
 import PriceRange from "@/components/filters/PriceRange";
+import { NftsTypes } from "@/types";
 
-const MainContent = () => {
+interface ItemRendererProps {
+  currentCategory: string;
+  filteredItems: NftsTypes[]; // Reemplaza "YourItemType" con el tipo de tus elementos
+}
+
+const MainContent: React.FC<ItemRendererProps> = ({ currentCategory, filteredItems }) => {
   const url = '/aunctions.json'
   const { data } = useFetch(url);
 
@@ -19,15 +23,14 @@ const MainContent = () => {
 
   return (
     <>
-      <SearchBar />
-      <TimeRange />
+      
       <main className="flex flex-col mx-auto md:flex md:flex-row md:justify-between">
         <section className="-mr-16">
           <PriceRange />
         </section>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-8 mt-8">
 
-          {data.map((nft) => (
+          {filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">
               <section className="w-64 h-[474px] bg-neutral2 rounded-[20px]">
                 <div className="p-3">
