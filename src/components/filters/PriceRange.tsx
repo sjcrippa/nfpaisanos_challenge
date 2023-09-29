@@ -1,9 +1,17 @@
 const PriceRange = () => {
   return (
     <>
-      <div className="w-full mx-auto md:mx-0 md:w-64">
-        <h1 className="text-light">PriceRange</h1>
-        <input type="range" name="price" />
+      <div className="mt-1 w-[312px] lg:w-44 lg:mt-0">
+        <p className="text-neutral5 text-xs">PRICE RANGE</p>
+        <input className="w-full lg:w-44" type="range" name="price" min={0} max={10} />
+        <div className="flex justify-between text-sm text-neutral8">
+          <span>
+            0.000 ETH
+          </span>
+          <span>
+            10 ETH
+          </span>
+        </div>
       </div>
     </>
   )

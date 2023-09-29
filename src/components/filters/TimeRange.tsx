@@ -3,6 +3,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Category from './Category'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -10,7 +11,7 @@ function classNames(...classes: string[]) {
 
 const TimeRange = () => {
   return (
-    <Menu as="div" className="flex flex-col md:flex md:flex-row w-full">
+    <Menu as="div" className="flex flex-col mx-auto md:flex md:flex-row w-full">
       <div className='w-full'>
         <Menu.Button className="flex justify-between w-full md:w-48 h-12 items-center rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
           Newest
@@ -18,6 +19,7 @@ const TimeRange = () => {
         </Menu.Button>
       </div>
 
+      <Category />
 
       <Transition
         as={Fragment}

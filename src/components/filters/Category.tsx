@@ -2,9 +2,6 @@
 
 import { useState } from 'react'
 import nft from '../../../public/aunctions.json'
-import MainContent from '../content/MainContent'
-import SearchBar from '../search/SearchBar'
-import TimeRange from './TimeRange'
 
 const Category = () => {
   const [currentCategory, setCurrentCategory] = useState('All items')
@@ -22,9 +19,7 @@ const Category = () => {
 
   return (
     <section>
-      <SearchBar />
       <div className='mt-8 mb-8 flex md:flex md:justify-end md:mt-0 md:mb-0 md:w-full gap-3 font-bold text-sm'>
-        <TimeRange />
         <button
           className={`w-32 px-3 py-[6px] rounded-full text-neutral4 focus:bg-neutral8 focus-within:text-neutral2 ${currentCategory === 'All items' ? 'bg-neutral8 text-neutral2' : ''
             }`}
@@ -47,7 +42,6 @@ const Category = () => {
           <span>Photography</span>
         </button>
       </div>
-      <MainContent currentCategory={currentCategory} filteredItems={filteredItems} />
     </section>
   )
 }
