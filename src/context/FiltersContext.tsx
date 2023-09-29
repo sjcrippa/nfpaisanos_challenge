@@ -34,7 +34,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (currentCategory === 'All items' && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
       return true;
     } else if (item.type === currentCategory && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
-      return;
+      return true;
     }
 
     if (!hasInteractedWithPriceRange) {
@@ -42,7 +42,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
       return true;
     }
 
-    return false
+    return
   });
 
   const handleCategoryClick = (type: string) => {
