@@ -19,7 +19,6 @@ const MainContent = () => {
     return <Loader />
   }
 
-
   return (
     <>
       <SearchBar />

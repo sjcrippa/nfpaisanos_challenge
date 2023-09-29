@@ -1,21 +1,8 @@
 'use client'
 
 import { useFilter } from '@/context/FiltersContext'
-import { useContext, useState } from 'react'
 
 const Category = () => {
-  /*  const [currentCategory, setCurrentCategory] = useState('All items')
-    const filteredItems = nft.data.filter((item) => {
-      if (currentCategory === 'All items') {
-        return true
-      } else {
-        return item.type === currentCategory
-      }
-    })
-  
-    const handleCategoryClick = (type: string) => {
-      setCurrentCategory(type)
-    } */
   const { currentCategory, setCurrentCategory, handleCategoryClick } = useFilter()
 
   return (
