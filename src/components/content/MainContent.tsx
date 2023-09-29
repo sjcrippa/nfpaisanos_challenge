@@ -9,6 +9,7 @@ import PriceRange from "@/components/filters/PriceRange";
 import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
 import { useFilter } from "@/context/FiltersContext";
+import ClearFilterBtn from "../common/ClearFilterBtn";
 
 const MainContent = () => {
   const url = '/aunctions.json'
@@ -24,8 +25,10 @@ const MainContent = () => {
       <SearchBar />
       <TimeRange />
       <main className="flex flex-col mx-auto lg:flex lg:flex-row lg:justify-between">
-        <section className="">
+        <section className="flex flex-col">
           <PriceRange />
+          <ClearFilterBtn />
+
         </section>
         <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 lg:grid lg:grid-cols-3 lg:gap-8 mt-8 ">
 

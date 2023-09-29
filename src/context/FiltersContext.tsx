@@ -14,6 +14,8 @@ type FiltersContextType = {
   selectedPrice: number[]
   handlePriceChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handlePriceFilter: () => void;
+  appliedFilters: boolean;
+  clearFilters: () => void;
 };
 
 const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
@@ -23,11 +25,12 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [priceRange, setPriceRange] = useState([0, 10]);
   const [selectedPrice, setSelectedPrice] = useState<number[]>(priceRange);
   const [hasInteractedWithPriceRange, setHasInteractedWithPriceRange] = useState(false);
+  const [appliedFilters, setAppliedFilters] = useState(false);
 
   // Logica para filtrar items segun su categoria:
   const filteredItems = nfts.data.filter((item) => {
     const instantPrice = parseFloat(item.instantPrice)
-    
+
     if (currentCategory === 'All items' && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
       return true;
     } else if (item.type === currentCategory && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
@@ -35,10 +38,13 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
 
     if (!hasInteractedWithPriceRange) {
-      // Si no ha interactuado con el rango, mostrar todos los elementos
+      // Si user no interctuo con el rango, mostrar todos los elementos
       return true;
     }
+
+    return false
   });
+
   const handleCategoryClick = (type: string) => {
     setCurrentCategory(type);
   };
@@ -47,17 +53,26 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const filterByPrice = (minPrice: number, maxPrice: number) => {
     setPriceRange([minPrice, maxPrice]);
     setHasInteractedWithPriceRange(true)
+    setAppliedFilters(true)
   };
 
-  // Manejador para el cambio en el input de rango
+  // Manejador para el cambio en el input de rango:
   const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newPrice = parseFloat(event.target.value);
     setSelectedPrice([newPrice]);
   };
 
-  // Manejador para aplicar el filtrado cuando el usuario suelta el control del input de rango
+  // Logica para aplicar el filtrado cuando el usuario suelta el control del input de rango:
   const handlePriceFilter = () => {
     filterByPrice(selectedPrice[0], selectedPrice[0] + 1);
+  };
+
+  // Logica para limpiar los filtros:
+  const clearFilters = () => {
+    setCurrentCategory('All items');
+    setPriceRange([0, 10]);
+    setHasInteractedWithPriceRange(false);
+    setAppliedFilters(false); // Se borran los filtros
   };
 
   return (
@@ -72,6 +87,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         selectedPrice,
         handlePriceChange,
         handlePriceFilter,
+        appliedFilters,
+        clearFilters
       }}>
       {children}
     </FiltersContext.Provider>

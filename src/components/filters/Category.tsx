@@ -1,9 +1,7 @@
-'use client'
-
-import { useFilter } from '@/context/FiltersContext'
+import { useFilter } from '@/context/FiltersContext';
 
 const Category = () => {
-  const { currentCategory, setCurrentCategory, handleCategoryClick } = useFilter()
+  const { currentCategory, handleCategoryClick } = useFilter();
 
   return (
     <section>
@@ -31,7 +29,7 @@ const Category = () => {
         </button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Category
+export default Category;
