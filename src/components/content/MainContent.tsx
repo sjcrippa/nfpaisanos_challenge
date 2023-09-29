@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AdjustmentsVerticalIcon } from '@heroicons/react/20/solid';
 
 import useFetch from '@/hooks/useFetch';
+import Loader from "../loader/Loader";
 import PriceRange from "@/components/filters/PriceRange";
 import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
@@ -15,6 +16,9 @@ const MainContent = () => {
   const { data } = useFetch(url);
   const { filteredItems } = useFilter()
 
+  if (!data || data.length === 0) {
+    return <Loader />
+  }
 
   return (
     <>

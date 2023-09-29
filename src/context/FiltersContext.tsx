@@ -29,20 +29,17 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // Logica para filtrar items segun su categoria:
   const filteredItems = nfts.data.filter((item) => {
-    const instantPrice = parseFloat(item.instantPrice)
+    const instantPrice = parseFloat(item.instantPrice);
 
-    if (currentCategory === 'All items' && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
-      return true;
-    } else if (item.type === currentCategory && instantPrice >= priceRange[0] && instantPrice <= priceRange[1]) {
-      return true;
-    }
+    const categoryMatch = currentCategory === 'All items' || item.type === currentCategory;
+    const priceRangeMatch = instantPrice >= priceRange[0] && instantPrice <= priceRange[1];
 
-    if (!hasInteractedWithPriceRange) {
-      // Si user no interctuo con el rango, mostrar todos los elementos
+    // Mostrar elementos que coincidan con la categoría o el rango de precio
+    if ((categoryMatch && priceRangeMatch) || (!hasInteractedWithPriceRange && categoryMatch)) {
       return true;
     }
 
-    return
+    return false;
   });
 
   const handleCategoryClick = (type: string) => {
@@ -52,8 +49,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Logica para filtrar items segun su precio:
   const filterByPrice = (minPrice: number, maxPrice: number) => {
     setPriceRange([minPrice, maxPrice]);
-    setHasInteractedWithPriceRange(true)
-    setAppliedFilters(true)
+    setHasInteractedWithPriceRange(true);
+    setAppliedFilters(true);
   };
 
   // Manejador para el cambio en el input de rango:
@@ -88,7 +85,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         handlePriceChange,
         handlePriceFilter,
         appliedFilters,
-        clearFilters
+        clearFilters,
       }}>
       {children}
     </FiltersContext.Provider>
