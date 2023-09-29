@@ -30,7 +30,7 @@ const MainContent = () => {
           <ClearFilterBtn />
 
         </section>
-        <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 lg:grid lg:grid-cols-3 lg:gap-8 mt-8 ">
+        <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 xl:grid xl:grid-cols-3 xl:gap-8 mt-8 ">
 
           {filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">
