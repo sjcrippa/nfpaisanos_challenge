@@ -36,6 +36,8 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* SIDEBAR MENU: */}
+          
           <button
             className='flex lg:hidden items-center'
             onClick={() => setSideMenu(!sideMenu)}>
