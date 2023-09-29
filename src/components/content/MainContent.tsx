@@ -8,14 +8,17 @@ import Loader from "../loader/Loader";
 import PriceRange from "@/components/filters/PriceRange";
 import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
+import { useFilter } from "@/context/FiltersContext";
 
 const MainContent = () => {
   const url = '/aunctions.json'
   const { data } = useFetch(url);
+  const { filteredItems } = useFilter()
 
   if (!data || data.length === 0) {
     return <Loader />
   }
+
 
   return (
     <>
@@ -27,7 +30,7 @@ const MainContent = () => {
         </section>
         <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 lg:grid lg:grid-cols-3 lg:gap-8 mt-8 ">
 
-          {data.map((nft) => (
+          {filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">
               <section className="w-64 h-[474px] bg-neutral2 rounded-[20px]">
                 <div className="p-3">
