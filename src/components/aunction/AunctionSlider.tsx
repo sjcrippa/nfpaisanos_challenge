@@ -5,8 +5,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { useEffect, useState } from 'react';
 
 import { NftsTypes } from '@/types';
-import useCurrencyFetch from '../../hooks/useCurrencyFetch';
-import convertETHtoUSD from '../../utility/convertEthToUsd';
+import ethToUsd from '../../utility/convertEthToUsd';
 import { convertTimestampToTime, TimeConversionResult } from '@/utility/convertTime';
 
 interface ChildComponentProps {
@@ -16,18 +15,13 @@ interface ChildComponentProps {
 }
 
 const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClick, currentItem }) => {
-  const { currencyData } = useCurrencyFetch('/eth-usd.json');
-
-  const ethValue = currentItem.instantPrice;
-
-  const usdEquivalent = convertETHtoUSD(ethValue);
-
   const [timeData, setTimeData] = useState<TimeConversionResult | null>(null);
+  const ethAmount = parseFloat(currentItem.highestBid)
+  const usdAmount = !isNaN(ethAmount) ? ethToUsd(ethAmount) : 0
+  console.log(usdAmount);
 
   useEffect(() => {
-    // Simulación de carga de datos desde una API o JSON
-    const jsonData = { endsAt: currentItem.endsAt }; // Reemplaza con tus datos reales
-
+    const jsonData = { endsAt: currentItem.endsAt };
     const { endsAt } = jsonData;
     const convertedTime = convertTimestampToTime(endsAt);
     setTimeData(convertedTime);
@@ -47,7 +41,6 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
               </div>
             </section>
             <section className='flex h-10 items-center'>
-              {/* <Image src='' alt='user' height={20} width={20} /> */}
               <div className='p-2 bg-primary4 rounded-full'>
                 <div className='w-6 h-6 border-2 border-light rounded-md'></div>
               </div>
@@ -65,7 +58,7 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
                 <div>
                   <h2 className='font-medium'>Current Bid</h2>
                   <p className='text-5xl font-bold'>{currentItem.highestBid}</p>
-                  <span className='text-neutral4 text-2xl font-semibold'>${currencyData?.usd}</span>
+                  <span className='text-neutral4 text-2xl font-semibold'>${usdAmount}</span>
                 </div>
 
                 <div className='mt-6 text-center'>
@@ -94,7 +87,7 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
 
           {/* BTN */}
           <section className='flex justify-center md:flex md:justify-normal md:gap-2'>
-            <button onClick={onPrevClick} className='p-2 text-neutral4'><FaArrowLeft /></button>
+            <button onClick={onPrevClick} className='p-2 border border-neutral3 rounded-full text-neutral4'><FaArrowLeft /></button>
             <button onClick={onNextClick} className='p-2 border border-neutral3 rounded-full text-neutral4'><FaArrowRight /></button>
           </section>
 

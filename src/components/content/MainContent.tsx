@@ -24,13 +24,13 @@ const MainContent = () => {
     <>
       <SearchBar />
       <TimeRange />
-      <main className="flex flex-col mx-auto lg:flex lg:flex-row lg:justify-between">
+      <main className="flex flex-col mx-auto lg:flex lg:flex-row">
         <section className="flex flex-col">
           <PriceRange />
           <ClearFilterBtn />
 
         </section>
-        <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 xl:grid xl:grid-cols-3 xl:gap-8 mt-8 ">
+        <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 xl:grid xl:grid-cols-3 xl:gap-8 mt-8 xl:ml-24">
 
           {filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">

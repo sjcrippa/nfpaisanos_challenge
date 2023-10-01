@@ -1,4 +1,5 @@
-// useCurrencyFetch.ts
+// Este hook consume los datos en el archivo eth-usd.json para que sean renderizados en el AunctionSlider.
+
 import { useEffect, useState } from 'react';
 
 interface CurrencyData {
@@ -16,7 +17,7 @@ const useCurrencyFetch = (url: string) => {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Error: falla en la respueta del sistema!');
         }
         const jsonData = await response.json();
         setCurrencyData(jsonData);
