@@ -29,7 +29,7 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
 
   return (
     <>
-      <div className='mx-auto mt-8 lg:ml-32 lg:mt-0'>
+      <div className='mx-auto mt-8 lg:ml-32 lg:mt-0 animate-fade-left animate-once'>
         <section className='flex flex-col'>
           <h1 className='text-neutral8 text-6xl tracking-wider leading-none font-black'>the creator network®</h1>
           <div className='mt-5 grid grid-cols-2 gap-[33px]'>
@@ -81,14 +81,14 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
 
           {/* BTN */}
           <section className='mt-10 mb-10 text-neutral8'>
-            <button className='w-full bg-primary1 rounded-full px-6 py-4 font-bold'>Place a bid</button>
-            <button className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold'>View a item</button>
+            <button className='w-full bg-primary1 rounded-full px-6 py-4 font-bold active:animate-jump animate-once '>Place a bid</button>
+            <button className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold active:animate-jump animate-once '>View a item</button>
           </section>
 
           {/* BTN */}
           <section className='flex justify-center md:flex md:justify-normal md:gap-2'>
-            <button onClick={onPrevClick} className='p-2 border border-neutral3 rounded-full text-neutral4'><FaArrowLeft /></button>
-            <button onClick={onNextClick} className='p-2 border border-neutral3 rounded-full text-neutral4'><FaArrowRight /></button>
+            <button onClick={onPrevClick} className='p-2 border border-neutral3 rounded-full text-neutral4 active:animate-jump animate-once'><FaArrowLeft /></button>
+            <button onClick={onNextClick} className='p-2 border border-neutral3 rounded-full text-neutral4 active:animate-jump animate-once'><FaArrowRight /></button>
           </section>
 
         </section>

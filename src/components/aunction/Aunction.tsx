@@ -33,7 +33,7 @@ const Aunction = () => {
     <>
       <main className='mt-32 grid grid-cols-1 lg:grid lg:grid-cols-2 mb-28'>
         <Image
-          className='rounded-2xl'
+          className='rounded-2xl animate-fade-right animate-once'
           src={currentItem.media.image} alt='logo'
           width={683}
           height={1024} />
