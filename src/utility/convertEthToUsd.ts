@@ -1,7 +1,8 @@
 // Esta función convierte una cantidad de ETH a su equivalente en dólares.
+import data from '../../public/eth-usd.json'
 
 const ethToUsd = (ethAmount: number): number => {
-  const ethToDollarRate = 1525.25;
+  const ethToDollarRate = parseFloat(data.usd.replace(',', ''));
   const dollarsAmount = ethAmount * ethToDollarRate;
   return dollarsAmount;
 }
