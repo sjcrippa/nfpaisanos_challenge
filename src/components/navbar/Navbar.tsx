@@ -16,7 +16,7 @@ const Navbar = () => {
           <div className="flex items-center gap-8">
             <div className="flex gap-2 items-center">
               <Image src='/frame.svg' alt="logo" width={32} height={32} />
-              <h1 className="text-neutral7 font-extrabold text-2xl">
+              <h1 className="text-neutral7 font-extrabold text-2xl ">
                 <Link href='/'>NFPaisanos</Link>
               </h1>
             </div>
@@ -31,13 +31,15 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex lg:items-center ">
-            <button className="px-4 py-3 border-2 border-neutral4 rounded-full hover:bg-neutral8 hover:text-dark transition-all duration-200 text-neutral8 text-sm font-sans font-bold hover:border-neutral8">
+            <button
+              onClick={() => alert("This section is still in the development process!")}
+              className="px-4 py-3 border-2 border-neutral4 rounded-full hover:bg-neutral8 hover:text-dark transition-all duration-200 text-neutral8 text-sm font-sans font-bold hover:border-neutral8">
               Connect Wallet
             </button>
           </div>
 
           {/* SIDEBAR MENU: */}
-          
+
           <button
             className='flex lg:hidden items-center'
             onClick={() => setSideMenu(!sideMenu)}>

@@ -30,7 +30,7 @@ const PriceRange = () => {
         />
         <div className="flex justify-between text-sm text-neutral8">
           <span>
-            0.000 ETH
+            {selectedPrice} ETH
           </span>
           <span>
             10 ETH

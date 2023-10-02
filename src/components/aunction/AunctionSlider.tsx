@@ -18,7 +18,6 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
   const [timeData, setTimeData] = useState<TimeConversionResult | null>(null);
   const ethAmount = parseFloat(currentItem.highestBid)
   const usdAmount = !isNaN(ethAmount) ? ethToUsd(ethAmount) : 0
-  console.log(usdAmount);
 
   useEffect(() => {
     const jsonData = { endsAt: currentItem.endsAt };
@@ -86,8 +85,12 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
 
           {/* BTN */}
           <section className='mt-10 mb-10 text-neutral8'>
-            <button className='w-full bg-primary1 rounded-full px-6 py-4 font-bold hover:bg-primary1/80 animate-fade-right animate-once animate-delay-700 animate-duration-1000'>Place a bid</button>
-            <button className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold hover:bg-neutral2/30 animate-fade-left animate-once animate-delay-700 animate-duration-1000'>View a item</button>
+            <button
+              onClick={() => alert("This section is still in the development process!")}
+              className='w-full bg-primary1 rounded-full px-6 py-4 font-bold hover:bg-primary1/80 animate-fade-right animate-once animate-delay-700 animate-duration-1000'>Place a bid</button>
+            <button
+              onClick={() => alert("This section is still in the development process!")}
+              className='mt-2 w-full border border-neutral3 rounded-full px-6 py-4 font-bold hover:bg-neutral2/30 animate-fade-left animate-once animate-delay-700 animate-duration-1000'>View a item</button>
           </section>
 
           {/* BTN */}
