@@ -1,6 +1,5 @@
-'use client'
-
 import { useFilter } from "@/context/FiltersContext";
+import { ChangeEvent } from "react";
 
 const PriceRange = () => {
   const { selectedPrice, handlePriceChange, handlePriceFilter } = useFilter()
@@ -15,9 +14,19 @@ const PriceRange = () => {
           name="price"
           min={0}
           max={10}
-          value={selectedPrice[0]}
+          value={selectedPrice[5]}
           onChange={handlePriceChange}
           onMouseUp={handlePriceFilter}
+          onTouchStart={(event) => {
+            const fakeChangeEvent = {
+              target: event.target as HTMLInputElement,
+            } as ChangeEvent<HTMLInputElement>;
+        
+            handlePriceChange(fakeChangeEvent);
+          }}
+          onTouchEnd={() => {
+            handlePriceFilter();
+          }}
         />
         <div className="flex justify-between text-sm text-neutral8">
           <span>

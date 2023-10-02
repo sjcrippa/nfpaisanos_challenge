@@ -47,10 +47,10 @@ const Navbar = () => {
           </button>
 
           <nav className=
-            {`flex w-1/3 mt-16 lg:items-center sm:px-4 lg:gap-3 text-light text-md z-10 h-screen fixed transition-color duration-500 ease-in lg:hidden ${!sideMenu ? '-right-[100%]' : 'fixed right-0 shadow-lg shadow-dark'}`}>
-            <ul className='flex flex-col mt-5 gap-5 mx-auto text-neutral4'>
-              <Link className='flex gap-3 text-sm font-bold border-b border-b-neutral4' href={'/discover'}>Discover</Link>
-              <Link className='flex gap-3 text-sm font-bold border-b border-b-neutral4' href={"/about"} >About</Link>
+            {`flex w-1/3 mt-16 lg:items-center sm:px-4 lg:gap-3 text-md z-10 h-screen bg-neutral3 bg-opacity-70 fixed rounded-md transition-color duration-500 ease-in lg:hidden ${!sideMenu ? '-right-[100%]' : 'fixed right-0 shadow-lg shadow-dark'}`}>
+            <ul className='flex flex-col mt-5 gap-5 mx-auto text-neutral8 font-bold'>
+              <Link className='flex gap-3 text-sm font-bold border-b border-b-neutral8' href={'/discover'}>Discover</Link>
+              <Link className='flex gap-3 text-sm font-bold border-b border-b-neutral8' href={"/about"} >About</Link>
             </ul>
           </nav>
         </nav>
