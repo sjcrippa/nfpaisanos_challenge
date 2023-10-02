@@ -32,9 +32,9 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
       <div className='mx-auto mt-8 lg:ml-32 lg:mt-0'>
         <section className='flex flex-col'>
           <h1 className='text-neutral8 text-6xl tracking-wider leading-none font-black animate-fade-down animate-once animate-duration-500 animate-delay-300'>the creator network®</h1>
-          <div className='mt-5 grid grid-cols-2 gap-[33px]'>
+          <div className='mt-5 grid grid-cols-2 gap-12 md:gap-[33px]'>
             <section className='flex h-10 items-center animate-fade-right animate-once animate-duration-700 animate-delay-300'>
-              <Image className='rounded-full' src={currentItem.authorAvatar} alt='avatar' height={60} width={40} />
+              <Image className='rounded-full w-12 h-12' src={currentItem.authorAvatar} alt='avatar' height={60} width={40} />
               <div className='flex flex-col ml-2 flex-shrink-0 '>
                 <h2 className='text-neutral4'>Creator</h2>
                 <h4 className='text-neutral8 font-semibold'>{currentItem.author}</h4>

@@ -34,7 +34,7 @@ const MainContent = () => {
 
           {filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">
-              <section className="w-full h-[550px] lg:w-64 lg:h-[474px] bg-neutral2 rounded-[20px] animate-fade-right animate-duration-500 animate-once">
+              <section className="w-full h-[550px] lg:w-64 md:h-[474px] bg-neutral2 rounded-[20px] animate-fade-right animate-duration-500 animate-once">
                 <div className="p-3">
                   <Image
                     className="rounded-[20px]"
