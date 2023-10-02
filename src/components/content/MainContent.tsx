@@ -33,8 +33,8 @@ const MainContent = () => {
         <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 xl:grid xl:grid-cols-3 xl:gap-8 mt-8 xl:ml-24">
 
           {filteredItems.map((nft) => (
-            <div key={nft.id} className="mt-8 md:mt-0 mb-8 animate-rotate-y animate-once animate-duration-700">
-              <section className="w-64 h-[474px] bg-neutral2 rounded-[20px] animate-fade animate-once animate-duration-[1500ms]">
+            <div key={nft.id} className="mt-8 md:mt-0 mb-8">
+              <section className="w-64 h-[474px] bg-neutral2 rounded-[20px] animate-fade-right animate-duration-500 animate-once">
                 <div className="p-3">
                   <Image
                     className="rounded-[20px]"
