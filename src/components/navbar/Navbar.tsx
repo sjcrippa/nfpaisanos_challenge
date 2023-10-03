@@ -4,6 +4,7 @@ import { HiOutlineMenuAlt4, HiX } from 'react-icons/hi'
 
 import Link from "next/link";
 import Image from "next/image";
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
   const [sideMenu, setSideMenu] = useState(false)
@@ -32,7 +33,11 @@ const Navbar = () => {
 
           <div className="hidden lg:flex lg:items-center ">
             <button
-              onClick={() => alert("This section is still in the development process!")}
+              onClick={() => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'This section is in the development stage!',
+              })}
               className="px-4 py-3 border-2 border-neutral4 rounded-full hover:bg-neutral8 hover:text-dark transition-all duration-200 text-neutral8 text-sm font-sans font-bold hover:border-neutral8">
               Connect Wallet
             </button>

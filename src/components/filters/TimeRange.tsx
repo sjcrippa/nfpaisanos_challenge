@@ -10,7 +10,7 @@ const TimeRange = () => {
   return (
     <Menu as="div" className="flex flex-col mx-auto w-full">
       <div className='w-full mb-3'>
-        <Menu.Button onClick={() => setOpen(!open)} className="flex justify-between w-full md:w-44 h-12 items-center rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
+        <Menu.Button onClick={() => setOpen(!open)} className="flex justify-between w-full lg:w-44 h-12 items-center rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
           Newest
           {open
             ? <ChevronUpIcon className="flex justify-end text-neutral4 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />

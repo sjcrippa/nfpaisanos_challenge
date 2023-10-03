@@ -26,7 +26,7 @@ const MainContent = () => {
   return (
     <>
       <SearchBar />
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex md:justify-between items-center">
         <TimeRange />
         <Category />
       </div>
