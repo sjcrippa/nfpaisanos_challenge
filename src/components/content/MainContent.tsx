@@ -10,6 +10,9 @@ import TimeRange from "../filters/TimeRange";
 import SearchBar from "../search/SearchBar";
 import { useFilter } from "@/context/FiltersContext";
 import ClearFilterBtn from "../common/ClearFilterBtn";
+import Likes from "../filters/Likes";
+import Colors from "../filters/Colors";
+import Category from "../filters/Category";
 
 const MainContent = () => {
   const url = '/aunctions.json'
@@ -23,10 +26,15 @@ const MainContent = () => {
   return (
     <>
       <SearchBar />
-      <TimeRange />
+      <div className="flex justify-between items-center">
+        <TimeRange />
+        <Category />
+      </div>
       <main className="flex flex-col mx-auto lg:flex lg:flex-row">
         <section className="flex flex-col">
           <PriceRange />
+          <Likes />
+          <Colors />
           <ClearFilterBtn />
 
         </section>
