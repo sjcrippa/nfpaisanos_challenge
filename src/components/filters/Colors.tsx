@@ -3,9 +3,12 @@
 import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
+import { useFilter } from '@/context/FiltersContext'
 
 const Colors = () => {
   const [open, setOpen] = useState(false)
+  const { currentCategory, handleColorChange, selectedColor} = useFilter();
+
 
   return (
     <Menu as="div" className="flex flex-col mx-auto w-full">
@@ -14,7 +17,7 @@ const Colors = () => {
         <h2 className='text-neutral5 text-xs font-bold mb-3'>OPEN</h2>
 
         <Menu.Button onClick={() => setOpen(!open)} className="flex justify-between w-full h-12 items-center rounded-xl bg-white px-4 pr-2 py-2 text-sm border border-neutral3 text-neutral8">
-          Colors
+          {selectedColor}
           {open
             ? <ChevronUpIcon className="flex justify-end text-neutral4 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />
             : <ChevronDownIcon className="flex justify-end text-neutral4 border border-neutral3 rounded-full h-5 w-5" aria-hidden="true" />
@@ -38,7 +41,9 @@ const Colors = () => {
               <ul className='font-medium'>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button className='w-full p-2 flex items-center rounded-xl gap-2 text-primary1 hover:bg-dark hover:text-neutral8 '>
+                    <button 
+                    onClick={() => handleColorChange('All colors')}
+                    className='w-full p-2 flex items-center rounded-xl gap-2 text-primary1 hover:bg-dark hover:text-neutral8 '>
                       <div className='w-6 h-6 rounded-full border-2 border-primary1'></div>
                       All colors
                     </button>
@@ -46,7 +51,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button 
+                    onClick={() => handleColorChange('black')}
+                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
                       <div className='w-6 h-6 rounded-full bg-dark'></div>
                       Black
                     </button>
@@ -54,7 +61,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button 
+                    onClick={() => handleColorChange('green')}
+                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
                       <div className='w-6 h-6 rounded-full bg-primary4'></div>
                       Green
                     </button>
@@ -62,7 +71,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button 
+                    onClick={() => handleColorChange('pink')}
+                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
                       <div className='w-6 h-6 rounded-full bg-primary3'></div>
                       Pink
                     </button>
@@ -70,7 +81,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button 
+                    onClick={() => handleColorChange('purple')}
+                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
                       <div className='w-6 h-6 rounded-full bg-primary2'></div>
                       Purple
                     </button>

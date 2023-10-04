@@ -120,7 +120,7 @@
         },
         "attributes": {
             "id": 7,
-            "color": "orange",
+            "color": "purple",
             "type": "legendary"
         },
         "bidUsers": [
@@ -198,7 +198,7 @@
         },
         "attributes": {
             "id": 9,
-            "color": "blue",
+            "color": "green",
             "type": "uncommon"
         },
         "bidUsers": [
@@ -266,7 +266,7 @@
         },
         "attributes": {
             "id": 11,
-            "color": "red",
+            "color": "green",
             "type": "uncommon"
         },
         "bidUsers": []
@@ -352,7 +352,7 @@
         },
         "attributes": {
             "id": 14,
-            "color": "orange",
+            "color": "pink",
             "type": "rare"
         },
         "bidUsers": [

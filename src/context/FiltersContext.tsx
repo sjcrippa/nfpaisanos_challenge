@@ -16,6 +16,8 @@ type FiltersContextType = {
   handlePriceFilter: () => void;
   appliedFilters: boolean;
   clearFilters: () => void;
+  selectedColor: string;
+  handleColorChange: (color: string) => void;
 };
 
 const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
@@ -26,6 +28,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [selectedPrice, setSelectedPrice] = useState<number[]>(priceRange);
   const [hasInteractedWithPriceRange, setHasInteractedWithPriceRange] = useState(false);
   const [appliedFilters, setAppliedFilters] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('All colors');
 
   // Logica para filtrar items segun su categoria:
   const filteredItems = nfts.data.filter((item) => {
@@ -33,9 +36,10 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     const categoryMatch = currentCategory === 'All items' || item.type === currentCategory;
     const priceRangeMatch = instantPrice >= priceRange[0] && instantPrice <= priceRange[1];
+    const colorMatch = selectedColor === 'All colors' || item.attributes.color === selectedColor;
 
     // Mostrar items que coincidan con la categoría o el rango de precio
-    if ((categoryMatch && priceRangeMatch) || (!hasInteractedWithPriceRange && categoryMatch)) {
+    if ((categoryMatch && priceRangeMatch && colorMatch) || (!hasInteractedWithPriceRange && categoryMatch && colorMatch)) {
       return true;
     }
 
@@ -44,6 +48,12 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const handleCategoryClick = (type: string) => {
     setCurrentCategory(type);
+  };
+
+  // New function to filter items by color
+  const handleColorChange = (color: string) => {
+    setSelectedColor(color);
+    setAppliedFilters(true);
   };
 
   // Logica para filtrar items segun su precio:
@@ -67,7 +77,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Logica para limpiar los filtros:
   const clearFilters = () => {
     setCurrentCategory('All items');
-    setPriceRange([0, 10]);
+    setSelectedColor('All colors')
+    setPriceRange([0]);
     setHasInteractedWithPriceRange(false);
     setAppliedFilters(false); // Se borran los filtros
   };
@@ -86,6 +97,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         handlePriceFilter,
         appliedFilters,
         clearFilters,
+        selectedColor,
+        handleColorChange,
       }}>
       {children}
     </FiltersContext.Provider>
