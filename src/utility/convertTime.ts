@@ -1,6 +1,3 @@
-// conversion.ts
-
-// Definir una interfaz para el resultado de la conversión
 export interface TimeConversionResult {
   hours: string;
   minutes: string;

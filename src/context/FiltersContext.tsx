@@ -34,7 +34,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const categoryMatch = currentCategory === 'All items' || item.type === currentCategory;
     const priceRangeMatch = instantPrice >= priceRange[0] && instantPrice <= priceRange[1];
 
-    // Mostrar elementos que coincidan con la categoría o el rango de precio
+    // Mostrar items que coincidan con la categoría o el rango de precio
     if ((categoryMatch && priceRangeMatch) || (!hasInteractedWithPriceRange && categoryMatch)) {
       return true;
     }

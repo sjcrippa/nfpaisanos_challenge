@@ -22,6 +22,7 @@ const useFetch = (url: string) => {
         setError(error.message);
         setLoading(false);
       }
+      setLoading(true)
     };
 
     fetchData();

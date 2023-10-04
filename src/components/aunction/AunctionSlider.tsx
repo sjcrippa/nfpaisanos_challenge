@@ -17,9 +17,12 @@ interface ChildComponentProps {
 
 const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClick, currentItem }) => {
   const [timeData, setTimeData] = useState<TimeConversionResult | null>(null);
+
+  // Convirtiendo eth a usd:
   const ethAmount = parseFloat(currentItem.highestBid)
   const usdAmount = !isNaN(ethAmount) ? ethToUsd(ethAmount) : 0
 
+  // Fraccionando el timestamp en horas, minutos y segundos:
   useEffect(() => {
     const jsonData = { endsAt: currentItem.endsAt };
     const { endsAt } = jsonData;
@@ -35,7 +38,7 @@ const AunctionSlider: React.FC<ChildComponentProps> = ({ onNextClick, onPrevClic
           <div className='mt-5 grid grid-cols-2 gap-12 md:gap-[33px]'>
             <section className='flex h-10 items-center animate-fade-right animate-once animate-duration-700 animate-delay-500'>
               <Image className='rounded-full w-12 h-12' src={currentItem.authorAvatar} alt='avatar' height={60} width={40} />
-              <div className='flex flex-col ml-2 flex-shrink-0 '>
+              <div className='flex flex-col ml-2 md:flex md:flex-shrink-0 '>
                 <h2 className='text-neutral4'>Creator</h2>
                 <h4 className='text-neutral8 font-semibold'>{currentItem.author}</h4>
               </div>

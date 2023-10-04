@@ -13,15 +13,22 @@ import ClearFilterBtn from "../common/ClearFilterBtn";
 import Likes from "../filters/Likes";
 import Colors from "../filters/Colors";
 import Category from "../filters/Category";
+import { useEffect, useState } from "react";
 
 const MainContent = () => {
   const url = '/aunctions.json'
   const { data } = useFetch(url);
   const { filteredItems } = useFilter()
+  const [noProductsFound, setNoProductsFound] = useState<boolean>(false);
 
-  if (!data || data.length === 0) {
-    return <Loader />
-  }
+  useEffect(() => {
+    // Verificar si no se encontraron productos coincidentes
+    if (filteredItems.length === 0) {
+      setNoProductsFound(true);
+    } else {
+      setNoProductsFound(false);
+    }
+  }, [filteredItems]);
 
   return (
     <>
@@ -31,16 +38,17 @@ const MainContent = () => {
         <Category />
       </div>
       <main className="flex flex-col mx-auto lg:flex lg:flex-row">
+
         <section className="flex flex-col">
           <PriceRange />
           <Likes />
           <Colors />
           <ClearFilterBtn />
-
         </section>
+
         <div className="grid grid-cols-1 mx-auto sm:grid sm:grid-cols-2 sm:gap-8 xl:grid xl:grid-cols-3 xl:gap-8 mt-8 xl:ml-24">
 
-          {filteredItems.map((nft) => (
+          {!data ? <Loader /> : filteredItems.map((nft) => (
             <div key={nft.id} className="mt-8 md:mt-0 mb-8">
               <section className="w-full h-[550px] lg:w-64 md:h-[474px] bg-neutral2 rounded-[20px] animate-fade-right animate-duration-500 animate-once">
                 <div className="p-3">
@@ -98,6 +106,14 @@ const MainContent = () => {
           ))}
 
         </div>
+
+        {noProductsFound &&
+          <div className="w-full mb-24">
+            <Image className="mx-auto animate-jump-in animate-once animate-delay-300 animate-duration-500" src='/not-found.png' alt="not-found" width={500} height={500}/>
+            <h2 className="text-2xl text-center text-primary3 italic font-bold animate-fade-left animate-once animate-delay-700 animate-duration-500">Oops!</h2>
+            <h3 className="text-xl text-center text-primary3 italic font-bold animate-fade-right animate-once animate-delay-1000 animate-duration-500"> No succesfull match up 😭</h3>
+          </div>
+        }
       </main>
     </>
   )

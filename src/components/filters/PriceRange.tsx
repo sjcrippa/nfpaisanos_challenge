@@ -1,5 +1,5 @@
 import { useFilter } from "@/context/FiltersContext";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const PriceRange = () => {
   const { selectedPrice, handlePriceChange, handlePriceFilter } = useFilter()

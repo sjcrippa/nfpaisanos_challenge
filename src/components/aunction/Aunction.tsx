@@ -13,16 +13,17 @@ const Aunction = () => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  // Avanzar al siguiente artículo en el slider
   const onNextClick = () => {
-    // Avanzar al siguiente artículo en el slider
     setCurrentIndex((prevIndex) => (prevIndex + 1) % (data ? data.length : 0));
   };
 
+  // Retroceder al artículo anterior en el slider
   const onPrevClick = () => {
-    // Retroceder al artículo anterior en el slider
     setCurrentIndex((prevIndex) => (prevIndex - 1 + (data ? data.length : 0)) % (data ? data.length : 0));
   };
 
+  // Validando que data no sea null:
   if (!data || data.length === 0) {
     return <Loader />
   }
