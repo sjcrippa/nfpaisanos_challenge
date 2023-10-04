@@ -9,7 +9,7 @@ const PriceRange = () => {
       <div className="mt-0 w-[312px] lg:w-44 lg:mt-1">
         <p className="text-neutral5 text-xs">PRICE RANGE</p>
         <input
-          className="w-full lg:w-44"
+          className="w-full lg:w-44 custom-range"
           type="range"
           name="price"
           min={0}
