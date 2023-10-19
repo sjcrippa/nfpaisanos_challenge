@@ -18,6 +18,8 @@ type FiltersContextType = {
   clearFilters: () => void;
   selectedColor: string;
   handleColorChange: (color: string) => void;
+  selectedAntiquity: string;
+  handleAntiquity: (antiquity: string) => void;
 };
 
 const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
@@ -27,19 +29,29 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [priceRange, setPriceRange] = useState([0, 10]);
   const [selectedPrice, setSelectedPrice] = useState<number[]>(priceRange);
   const [hasInteractedWithPriceRange, setHasInteractedWithPriceRange] = useState(false);
-  const [appliedFilters, setAppliedFilters] = useState(false);
   const [selectedColor, setSelectedColor] = useState('All colors');
-
+  const [selectedAntiquity, setSelectedAntiquity] = useState('Current Age')
+  const [appliedFilters, setAppliedFilters] = useState(false);
+  
   // Logica para filtrar items segun su categoria:
   const filteredItems = nfts.data.filter((item) => {
     const instantPrice = parseFloat(item.instantPrice);
+    const isTimestampWithinRange = (timestamp: string, selectedAntiquity: string) => {
+      const itemDate = new Date(timestamp);
+      const currentDate = new Date();
+      const antiquityDate = new Date(currentDate);
+      antiquityDate.setFullYear(currentDate.getFullYear() - parseInt(selectedAntiquity));
+
+      return itemDate >= antiquityDate;
+    };
 
     const categoryMatch = currentCategory === 'All items' || item.type === currentCategory;
     const priceRangeMatch = instantPrice >= priceRange[0] && instantPrice <= priceRange[1];
     const colorMatch = selectedColor === 'All colors' || item.attributes.color === selectedColor;
+    const antiquityMatch = selectedAntiquity === 'Current Age' || isTimestampWithinRange(item.createdAt, selectedAntiquity);
 
     // Mostrar items que coincidan con la categoría o el rango de precio
-    if ((categoryMatch && priceRangeMatch && colorMatch) || (!hasInteractedWithPriceRange && categoryMatch && colorMatch)) {
+    if ((categoryMatch && priceRangeMatch && colorMatch && antiquityMatch) || (!hasInteractedWithPriceRange && categoryMatch && colorMatch && antiquityMatch)) {
       return true;
     }
 
@@ -50,9 +62,15 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setCurrentCategory(type);
   };
 
-  // New function to filter items by color
+  // Logica de filtrado segun color:
   const handleColorChange = (color: string) => {
     setSelectedColor(color);
+    setAppliedFilters(true);
+  };
+
+  // Logica de filtrado segun antiguedad:
+  const handleAntiquity = (antiquity: string) => {
+    setSelectedAntiquity(antiquity);
     setAppliedFilters(true);
   };
 
@@ -63,7 +81,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setAppliedFilters(true);
   };
 
-  // Manejador para el cambio en el input de rango:
+  // Logica para el cambio en el input de rango:
   const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newPrice = parseFloat(event.target.value);
     setSelectedPrice([newPrice]);
@@ -71,13 +89,14 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // Logica para aplicar el filtrado cuando el usuario suelta el control del input de rango:
   const handlePriceFilter = () => {
-    filterByPrice(selectedPrice[0], selectedPrice[0] + 1);
+    filterByPrice(selectedPrice[0], selectedPrice[0] + 0.5);
   };
 
   // Logica para limpiar los filtros:
   const clearFilters = () => {
     setCurrentCategory('All items');
     setSelectedColor('All colors')
+    setSelectedAntiquity('Current Age')
     setPriceRange([0]);
     setHasInteractedWithPriceRange(false);
     setAppliedFilters(false); // Se borran los filtros
@@ -99,6 +118,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         clearFilters,
         selectedColor,
         handleColorChange,
+        selectedAntiquity,
+        handleAntiquity
       }}>
       {children}
     </FiltersContext.Provider>

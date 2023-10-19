@@ -7,7 +7,7 @@ import { useFilter } from '@/context/FiltersContext'
 
 const Colors = () => {
   const [open, setOpen] = useState(false)
-  const { currentCategory, handleColorChange, selectedColor} = useFilter();
+  const { handleColorChange, selectedColor } = useFilter();
 
 
   return (
@@ -41,9 +41,9 @@ const Colors = () => {
               <ul className='font-medium'>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button 
-                    onClick={() => handleColorChange('All colors')}
-                    className='w-full p-2 flex items-center rounded-xl gap-2 text-primary1 hover:bg-dark hover:text-neutral8 '>
+                    <button
+                      onClick={() => handleColorChange('All colors')}
+                      className='w-full p-2 flex items-center rounded-xl gap-2 text-primary1 hover:bg-dark hover:text-neutral8'>
                       <div className='w-6 h-6 rounded-full border-2 border-primary1'></div>
                       All colors
                     </button>
@@ -51,9 +51,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button 
-                    onClick={() => handleColorChange('black')}
-                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button
+                      onClick={() => handleColorChange('black')}
+                      className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8'>
                       <div className='w-6 h-6 rounded-full bg-dark'></div>
                       Black
                     </button>
@@ -61,9 +61,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button 
-                    onClick={() => handleColorChange('green')}
-                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button
+                      onClick={() => handleColorChange('green')}
+                      className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8'>
                       <div className='w-6 h-6 rounded-full bg-primary4'></div>
                       Green
                     </button>
@@ -71,9 +71,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button 
-                    onClick={() => handleColorChange('pink')}
-                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button
+                      onClick={() => handleColorChange('pink')}
+                      className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8'>
                       <div className='w-6 h-6 rounded-full bg-primary3'></div>
                       Pink
                     </button>
@@ -81,9 +81,9 @@ const Colors = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <li className='text-sm mb-[10px]'>
-                    <button 
-                    onClick={() => handleColorChange('purple')}
-                    className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8 '>
+                    <button
+                      onClick={() => handleColorChange('purple')}
+                      className='w-full flex p-2 items-center rounded-xl gap-2 hover:bg-dark hover:text-neutral8'>
                       <div className='w-6 h-6 rounded-full bg-primary2'></div>
                       Purple
                     </button>
